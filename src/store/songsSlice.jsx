@@ -10,8 +10,16 @@ const initialState = {
 }
 
 export const requestSongs = createAsyncThunk('songs/songs', async ({ requestSong }) => {
-    const songs = await axios.get(`${import.meta.env.VITE_SONGS}/search?term=${requestSong}&_sort=collectionName&_order=asc&limit=${import.meta.env.VITE_FIVE}`)
+    // try {
+    //     const songs = await axios.get(`${import.meta.env.VITE_SONGS}/search?term=${requestSong}&_sort=collectionName&_order=asc&_limit=${import.meta.env.VITE_FIVE}`)
+    //     return songs.data
+    // } catch(err) {
+    //     return err.message
+    // }
+
+    const songs = await axios.get(`${import.meta.env.VITE_SONGS}/search?term=${requestSong}&_sort=collectionName&_order=asc&_limit=${import.meta.env.VITE_FIVE}`)
     return songs.data
+    
 })
 
 const songsSlice = createSlice({

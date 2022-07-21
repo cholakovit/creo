@@ -14,7 +14,7 @@ export const creoTheme = (mode) => {
                 mode,
                 ...(mode === "light"
                   ? {
-                      backgroundColor: colors.orange[400],
+                      backgroundColor: colors.orange[800],
                     }
                   : {
                       backgroundColor: colors.orange[900],
@@ -23,14 +23,18 @@ export const creoTheme = (mode) => {
             },
           },
         },
+        creoSizing: {
+          cornerRounded: '5px',
+          boxWidth: '400px',
+        },
         palette: {
           mode,
           ...(mode === "light"
             ? {
                 // palette values for light mode
                 primary: {
-                  main: colors.orange[200],
-                  black: colors.grey[500],
+                  main: colors.orange[800],
+                  black: colors.grey[800],
                   white: colors.grey[100],
                   iconColor: colors.grey[900]
                 },

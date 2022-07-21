@@ -1,9 +1,13 @@
 import { styled, alpha } from "@mui/material/styles";
-import { Box, Switch, FormControlLabel, TextField, Container, List, ListItem } from "@mui/material";
+import { Box, Switch, FormControlLabel, TextField, Container, List, ListItem, AppBar } from "@mui/material";
 
 export const Test = styled(Box)(({ theme }) => {
   console.log("theme", theme);
 });
+
+export const CreoAppBar = styled(AppBar)(({ theme }) => ({
+  backgroundColor: theme.palette.primary.black,
+}));
 
 export const CreoFormControlLabel = styled(FormControlLabel)(({ theme }) => ({
   margin: '10px',
@@ -22,12 +26,25 @@ export const Holder = styled(Box)(({ theme }) => ({
 }));
 
 export const SearchField = styled(TextField)(({ theme }) => ({
-  width: '400px'
+  width: theme.creoSizing.boxWidth,
+  backgroundColor: theme.palette.primary.black,
+  borderTopRightRadius: theme.creoSizing.cornerRounded,
+  borderTopLeftRadius: theme.creoSizing.cornerRounded,
+  '& label': {
+    color: theme.palette.primary.main,
+  },
+  '& input': {
+    color: theme.palette.primary.main,
+  }
 }));
 
 export const CreoList = styled(List)(({ theme }) => ({
-  width: '400px',
+  width: theme.creoSizing.boxWidth,
   backgroundColor: theme.palette.primary.black,
+  color: theme.palette.primary.main,
+  borderTopRightRadius: theme.creoSizing.cornerRounded,
+  borderTopLeftRadius: theme.creoSizing.cornerRounded,
+  borderBottom: '1px solid #fff'
 }));
 
 export const Song = styled(ListItem)(({ theme }) => ({

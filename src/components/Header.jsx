@@ -1,5 +1,5 @@
-import { MaterialUISwitch, Test, CreoFormControlLabel } from '../helper/styles'
-import { AppBar, Container } from '@mui/material'
+import { MaterialUISwitch, Test, CreoFormControlLabel, CreoAppBar } from '../helper/styles'
+import { Container } from '@mui/material'
 import { ColorModeContext } from '../helper/Context'
 import { useContext } from "react"
 
@@ -8,11 +8,11 @@ const Header = () => {
     const colorMode = useContext(ColorModeContext)
 
     return (
-        <AppBar>
+        <CreoAppBar>
             <Container>
                 <CreoFormControlLabel onClick={colorMode.toggleColorMode} control={<MaterialUISwitch defaultChecked />} />
             </Container>
-        </AppBar>
+        </CreoAppBar>
     )
 }
 

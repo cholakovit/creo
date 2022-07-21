@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react'
 import { CreoContainer, Holder, CreoList, Song } from '../helper/styles'
+import Alert from '@mui/material/Alert'
 
 import { useSelector } from "react-redux"
 import { getSongs, getStatus, getError } from "../store/songsSlice"
 import data from '../data/data'
+import Skeletons from './Skeletons'
 
 const SongList = () => {
   const error = useSelector(getError)
@@ -25,14 +27,7 @@ const SongList = () => {
     const firstElement = songs.shift()
 
     if(requestedSongs?.resultCount > 0 && count >= 0 && requestedSongs?.results) {
-
-      console.log('requestedSongs.results[count]', requestedSongs.results[count])
-
       songs.push(requestedSongs.results[count])
-      
-      console.log('count', count)
-      
-      
       setCount(count-1)
       return;
     } else {
@@ -48,9 +43,9 @@ const SongList = () => {
     <CreoContainer>
       <Holder>
         {status === import.meta.env.VITE_FAILED ? (<>
-          {error}
+          <Alert severity="error">{error}</Alert>
         </>) : status === import.meta.env.VITE_LOADING ? (<>
-          loading...
+          <Skeletons />
           </>) : (<>
             <CreoList>
               {songs.map((song, index) => (
